@@ -4,9 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0d0d0d" />
-    <meta name="description" content="BRASA 77 — Seu desejo. Nossa brasa." />
+    <meta name="description" content="BRASA 77 — Hambúrgueres artesanais, entradas, sobremesas, bebidas e experiência na brasa." />
+    <meta name="color-scheme" content="dark light" />
+    <meta property="og:title" content="BRASA 77 — Seu desejo. Nossa brasa." />
+    <meta property="og:description" content="Uma experiência de sabor feita para quem não se contenta com o básico." />
+    <meta property="og:type" content="website" />
     <title>BRASA 77 — Seu desejo. Nossa brasa.</title>
-    <link rel="shortcut icon" href="/assets/logo/logo-brasa-77.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/logo/logo-brasa-77.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -30,14 +34,19 @@
           <a class="nav-link is-active" href="#inicio" aria-current="page">Início</a>
           <a class="nav-link" href="#cardapio">Cardápio</a>
           <a class="nav-link" href="#sobre">Sobre</a>
+          <a class="nav-link" href="#avaliacoes">Avaliações</a>
+          <a class="nav-link" href="#promocao">Oferta</a>
           <a class="nav-link" href="#contato">Contato</a>
         </div>
 
-        <button class="cart-trigger" id="cart-trigger" aria-label="Abrir carrinho">
+        <div class="nav-tools">
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Ativar modo claro" aria-pressed="false"><span aria-hidden="true">☼</span></button>
+          <button class="cart-trigger" id="cart-trigger" aria-label="Abrir carrinho">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.1 10.1a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 1.9-1.5L20 8H7M9 20.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm8 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"/></svg>
           <span class="cart-label">Pedidos</span>
           <span class="cart-count" id="cart-count" hidden>0</span>
         </button>
+        </div>
       </nav>
     </header>
 
@@ -55,8 +64,7 @@
               <button class="button button-ghost" id="hero-order">Fazer pedido</button>
             </div>
             <div class="hero-meta"><span>●</span> Aparecida de Goiânia <b>•</b> Ter–Dom, 18h–23h</div>
-            <div class="hero-description"><b>te amo isa <3</b></div>
-
+            <div class="hero-description"><span>te amo isa <3</span></div>
           </div>
           <div class="hero-visual reveal">
             <div class="hero-image-wrap image-slot hero-slot">
@@ -80,6 +88,21 @@
         </div>
       </section>
 
+      <section class="reasons section" id="diferenciais">
+        <div class="container">
+          <div class="section-heading split-heading reveal">
+            <div><p class="eyebrow"><span></span> O que faz a diferença</p><h2>POR QUE<br /><em>BRASA 77?</em></h2></div>
+            <p>Detalhes pensados para transformar um simples pedido em uma experiência.</p>
+          </div>
+          <div class="reason-grid">
+            <article class="reason-card reveal"><span>01</span><strong>Na brasa</strong><p>Carnes e combinações inspiradas no sabor defumado e marcante da brasa.</p></article>
+            <article class="reason-card reveal"><span>02</span><strong>Receitas autorais</strong><p>Um cardápio jovem, criativo e sem medo de misturar sabores.</p></article>
+            <article class="reason-card reveal"><span>03</span><strong>Experiência</strong><p>Do primeiro clique ao último pedaço, tudo foi pensado para ser simples e visual.</p></article>
+            <article class="reason-card reveal"><span>04</span><strong>Feito para repetir</strong><p>Favoritos, novidades e combos para sempre existir um próximo pedido.</p></article>
+          </div>
+        </div>
+      </section>
+
       <section class="menu section" id="cardapio">
         <div class="menu-red-line" aria-hidden="true"></div>
         <div class="container">
@@ -97,7 +120,119 @@
             <button class="filter" data-filter="refrigerantes">Refrigerantes</button>
             <button class="filter" data-filter="drinks">Drinks</button>
           </div>
+          <div class="menu-tools reveal">
+            <label class="search-box" aria-label="Buscar produto">
+              <span aria-hidden="true">⌕</span>
+              <input id="menu-search" type="search" placeholder="Buscar no cardápio..." autocomplete="off" />
+              <kbd>⌘ K</kbd>
+            </label>
+            <label class="sort-box">Ordenar por
+              <select id="menu-sort">
+                <option value="featured">Destaques</option>
+                <option value="rating">Mais avaliados</option>
+                <option value="price-asc">Menor preço</option>
+                <option value="price-desc">Maior preço</option>
+                <option value="name">A–Z</option>
+              </select>
+            </label>
+          </div>
+          <p class="menu-result" id="menu-result" aria-live="polite"></p>
           <div class="menu-groups" id="menu-groups" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="promo section" id="promocao">
+        <div class="container">
+          <div class="promo-card reveal">
+            <div class="promo-copy">
+              <div class="promo-kicker"><span class="promo-dot"></span><span>OFERTA DA SEMANA</span><b>LIMITADA</b></div>
+              <h2>DESTAQUE<br /><em>DA SEMANA</em></h2>
+              <p>O Interestelar chega como o protagonista da semana: picanha, bacon, cheddar triplo e muito sabor em uma experiência feita para ir direto ao seu pedido.</p>
+              <div class="promo-price">
+                <span class="promo-old">de R$ 59,90</span>
+                <strong>R$ 49,90</strong>
+                <b class="promo-save">10 OFF</b>
+              </div>
+              <button class="button button-light" id="promo-add">Pedir Interestelar <span>→</span></button>
+            </div>
+            <div class="promo-art" aria-hidden="true">
+              <div class="promo-orbit promo-orbit-one"></div>
+              <div class="promo-orbit promo-orbit-two"></div>
+              <div class="promo-seal"><span>77</span><small> </small></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="reviews section" id="avaliacoes">
+        <div class="container">
+          <div class="section-heading split-heading review-heading reveal">
+            <div>
+              <p class="eyebrow"><span></span> Quem já provou, recomenda</p>
+              <h2>AVALIAÇÕES<br /><em>DA BRASA</em></h2>
+            </div>
+            <div class="review-summary" aria-label="Nota média 4,9 de 5">
+              <div class="review-summary-score">4,9</div>
+              <div>
+                <div class="stars-static" aria-hidden="true">★★★★★</div>
+                <p>Baseado em avaliações da casa</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-grid">
+            <article class="review-card reveal">
+              <div class="review-stars" aria-label="5 de 5 estrelas">★★★★★</div>
+              <blockquote>“O hambúrguer chegou muito bem montado e o sabor realmente surpreende. Dá vontade de pedir de novo.”</blockquote>
+              <div class="review-author"><span>LM</span><div><strong>Lucas M.</strong><small>Cliente da Brasa</small></div></div>
+            </article>
+            <article class="review-card reveal">
+              <div class="review-stars" aria-label="5 de 5 estrelas">★★★★★</div>
+              <blockquote>“O atendimento é rápido, os burgers são enormes e a combinação de sabores é absurda de boa.”</blockquote>
+              <div class="review-author"><span>AS</span><div><strong>Ana S.</strong><small>Cliente da Brasa</small></div></div>
+            </article>
+            <article class="review-card reveal">
+              <div class="review-stars" aria-label="5 de 5 estrelas">★★★★★</div>
+              <blockquote>“Pedi para experimentar e acabou virando um dos meus favoritos. A sobremesa também merece destaque.”</blockquote>
+              <div class="review-author"><span>GR</span><div><strong>Gabriel R.</strong><small>Cliente da Brasa</small></div></div>
+            </article>
+          </div>
+
+          <div class="review-form-wrap reveal">
+            <div class="review-form-intro">
+              <p class="eyebrow"><span></span> Sua vez</p>
+              <h3>DEIXE SUA<br /><em>OPINIÃO.</em></h3>
+              <p>Conte para a gente como foi sua experiência na BRASA 77. Sua mensagem será encaminhada para análise.</p>
+            </div>
+            <form class="review-form" id="review-form">
+              <div class="review-form-row">
+                <label>
+                  Seu nome
+                  <input type="text" name="name" placeholder="Como podemos te chamar?" autocomplete="name" required maxlength="60" />
+                </label>
+                <label>
+                  Nota
+                  <span class="star-picker" role="radiogroup" aria-label="Escolha sua nota de 1 a 5">
+                    <button type="button" class="star-option" data-rating="1" role="radio" aria-checked="false" aria-label="1 estrela">★</button>
+                    <button type="button" class="star-option" data-rating="2" role="radio" aria-checked="false" aria-label="2 estrelas">★</button>
+                    <button type="button" class="star-option" data-rating="3" role="radio" aria-checked="false" aria-label="3 estrelas">★</button>
+                    <button type="button" class="star-option" data-rating="4" role="radio" aria-checked="false" aria-label="4 estrelas">★</button>
+                    <button type="button" class="star-option" data-rating="5" role="radio" aria-checked="false" aria-label="5 estrelas">★</button>
+                  </span>
+                  <input type="hidden" name="rating" id="review-rating" value="" />
+                </label>
+              </div>
+              <label>
+                Sua opinião
+                <textarea name="comment" rows="5" placeholder="O que você achou da experiência?" required maxlength="500"></textarea>
+              </label>
+              <div class="review-form-footer">
+                <small>Leva menos de 1 minuto.</small>
+                <button class="button button-primary" type="submit">Enviar opinião <span>→</span></button>
+              </div>
+              <p class="review-feedback" id="review-feedback" role="status" aria-live="polite" hidden></p>
+            </form>
+          </div>
         </div>
       </section>
 
@@ -119,6 +254,22 @@
         </div>
       </section>
 
+      <section class="timeline section">
+        <div class="container">
+          <div class="section-heading center-heading reveal">
+            <p class="eyebrow"><span></span> De onde viemos <span></span></p>
+            <h2>UMA HISTÓRIA<br /><em>EM BRASA</em></h2>
+            <p>Uma marca fictícia, uma história criada para dar vida à experiência.</p>
+          </div>
+          <div class="timeline-track">
+            <article class="timeline-item reveal"><span>2026</span><div><strong>A ideia</strong><p>Nasce o conceito da BRASA 77: urbana, ousada e feita para sair do comum.</p></div></article>
+            <article class="timeline-item reveal"><span>2026</span><div><strong>Os primeiros testes</strong><p>Combinações, molhos e acompanhamentos são testados até encontrar a assinatura da casa.</p></div></article>
+            <article class="timeline-item reveal"><span>2026</span><div><strong>A casa ganha nome</strong><p>BRASA 77 passa a representar uma experiência que mistura fogo, criatividade e personalidade.</p></div></article>
+            <article class="timeline-item reveal"><span>HOJE</span><div><strong>A brasa está acesa</strong><p>O cardápio cresce, os favoritos aparecem e cada pedido vira parte da história.</p></div></article>
+          </div>
+        </div>
+      </section>
+
       <section class="cta-section">
         <div class="cta-grain" aria-hidden="true"></div>
         <div class="container cta-content reveal">
@@ -131,17 +282,32 @@
     </main>
 
     <footer class="footer" id="contato">
-      <div class="container footer-top">
-        <div class="footer-brand">
-          <a href="#inicio" class="brand"><svg class="brand-flame" viewBox="0 0 32 40" aria-hidden="true"><path d="M17.9 1.5C19.3 10.2 8 12.3 10.8 21.4c.9-4.1 3.8-5.7 6.7-8.8 5.7 5.4 8.4 10.2 6.7 16.2-1.6 5.9-6.4 9.7-12.2 9.7C5.8 38.5 1.6 34 1.6 27.7 1.6 19 8.4 15.3 11 9.1c1.3-3 1.1-5.7.9-7.6 2.3.9 4.1 2.7 4.9 5.1.3-2 .7-3.7 1.1-5.1Z"/></svg><span>BRASA <b>77</b></span></a>
-          <p>Seu desejo.<br />Nossa brasa.</p>
+      <div class="container contact-section">
+        <div class="contact-copy reveal">
+          <p class="eyebrow"><span></span> Fale com a Brasa</p>
+          <h2>VAMOS<br /><em>CONVERSAR.</em></h2>
+          <p>Tem uma dúvida, sugestão ou quer mandar um recado? Envie uma mensagem. Neste projeto, o envio é apenas demonstrativo.</p>
+          <div class="contact-data">
+            <span>📍 Aparecida de Goiânia — GO</span><span>🕐 Terça a Domingo — 18h às 23h</span>
+          </div>
+          <a class="whatsapp-button" href="https://wa.me/?text=Ol%C3%A1!%20Gostaria%20de%20conhecer%20a%20Brasa%2077." target="_blank" rel="noopener noreferrer">Falar pelo WhatsApp <span>↗</span></a>
         </div>
-        <div class="footer-column"><h3>Explore</h3><a href="#inicio">Início</a><a href="#cardapio">Cardápio</a><a href="#sobre">Sobre</a><a href="#contato">Contato</a></div>
-        <div class="footer-column"><h3>Fale com a gente</h3><a href="#contato">Instagram <span>↗</span></a><a href="#contato">WhatsApp <span>↗</span></a><p>Aparecida de Goiânia — GO</p><p>Terça a Domingo — 18h às 23h</p></div>
+        <form class="contact-form reveal" id="contact-form">
+          <label>Nome<input type="text" name="name" maxlength="60" autocomplete="name" required placeholder="Seu nome" /></label>
+          <label>E-mail<input type="email" name="email" maxlength="120" autocomplete="email" required placeholder="voce@email.com" /></label>
+          <label>Mensagem<textarea name="message" rows="6" maxlength="600" required placeholder="Escreva sua mensagem..."></textarea></label>
+          <button class="button button-primary" type="submit">Enviar mensagem <span>→</span></button>
+          <p class="form-success" id="contact-feedback" role="status" aria-live="polite" hidden></p>
+        </form>
+      </div>
+      <div class="container footer-divider"></div>
+      <div class="container footer-top">
+        <div class="footer-brand"><a href="#inicio" class="brand"><svg class="brand-flame" viewBox="0 0 32 40" aria-hidden="true"><path d="M17.9 1.5C19.3 10.2 8 12.3 10.8 21.4c.9-4.1 3.8-5.7 6.7-8.8 5.7 5.4 8.4 10.2 6.7 16.2-1.6 5.9-6.4 9.7-12.2 9.7C5.8 38.5 1.6 34 1.6 27.7 1.6 19 8.4 15.3 11 9.1c1.3-3 1.1-5.7.9-7.6 2.3.9 4.1 2.7 4.9 5.1.3-2 .7-3.7 1.1-5.1Z"/></svg><span>BRASA <b>77</b></span></a><p>Seu desejo.<br />Nossa brasa.</p></div>
+        <div class="footer-column"><h3>Explore</h3><a href="#inicio">Início</a><a href="#cardapio">Cardápio</a><a href="#avaliacoes">Avaliações</a><a href="#sobre">Sobre</a><a href="#promocao">Oferta</a><a href="#contato">Contato</a></div>
+        <div class="footer-column"><h3>Fale com a gente</h3><a href="https://wa.me/?text=Ol%C3%A1!%20Gostaria%20de%20conhecer%20a%20Brasa%2077." target="_blank" rel="noopener noreferrer">WhatsApp <span>↗</span></a><a href="#contato">Instagram <span>↗</span></a><p>Aparecida de Goiânia — GO</p><p>Terça a Domingo — 18h às 23h</p></div>
       </div>
       <div class="container footer-bottom"><span>© 2026 BRASA 77 — Projeto fictício para fins acadêmicos.</span><span>FEITO COM <b>FOME</b> &amp; FOGO</span></div>
     </footer>
-
     <div class="overlay" id="overlay"></div>
     <aside class="cart-panel" id="cart-panel" aria-label="Seu pedido" aria-hidden="true">
       <div class="panel-header"><div><p class="eyebrow"><span></span> Seu pedido</p><h2>NA BRASA</h2></div><button class="icon-button" data-close="cart" aria-label="Fechar carrinho">×</button></div>
@@ -156,6 +322,21 @@
       <div class="modal-content"><p class="eyebrow" id="modal-category"><span></span></p><h2 id="modal-title"></h2><p id="modal-description"></p><div class="modal-bottom"><strong id="modal-price"></strong><div class="quantity"><button id="modal-decrease" aria-label="Diminuir quantidade">−</button><span id="modal-quantity">1</span><button id="modal-increase" aria-label="Aumentar quantidade">+</button></div></div><button class="button button-primary modal-add" id="modal-add">Adicionar ao pedido <span>→</span></button></div>
     </div>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <button class="back-top" id="back-top" type="button" aria-label="Voltar ao topo">↑</button>
+    <div class="checkout-modal" id="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkout-title" aria-hidden="true">
+      <div class="checkout-card">
+        <button class="modal-close icon-button" data-close="checkout" aria-label="Fechar checkout">×</button>
+        <div class="checkout-head"><p class="eyebrow"><span></span> Última etapa</p><h2 id="checkout-title">FINALIZAR<br /><em>PEDIDO.</em></h2><p>Preencha os dados abaixo para simular o fechamento do pedido.</p></div>
+        <form class="checkout-form" id="checkout-form">
+          <div class="checkout-grid"><label>Nome<input required name="name" autocomplete="name" placeholder="Seu nome" /></label><label>Telefone<input required name="phone" inputmode="tel" autocomplete="tel" placeholder="(62) 99999-9999" /></label></div>
+          <label>Endereço<input required name="address" autocomplete="street-address" placeholder="Rua, número e bairro" /></label>
+          <fieldset><legend>Forma de pagamento</legend><div class="payment-options"><label><input type="radio" name="payment" value="pix" checked /> Pix</label><label><input type="radio" name="payment" value="card" /> Cartão</label><label><input type="radio" name="payment" value="cash" /> Dinheiro</label></div></fieldset>
+          <div class="checkout-total"><span>Total</span><strong id="checkout-total-value">R$ 0,00</strong></div>
+          <button class="button button-primary" type="submit">Confirmar pedido <span>→</span></button>
+          <p class="form-success" id="checkout-feedback" role="status" aria-live="polite" hidden></p>
+        </form>
+      </div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
